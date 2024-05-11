@@ -51,18 +51,3 @@ services:
       MYSQL_PASSWORD: weFLL1W45KK956nZunEjZRxh3g1E75ks1xc
     volumes:
       - ./docker/mysql:/var/lib/mysql
-
-  phpmyadmin:
-    image: phpmyadmin:5.1
-    container_name: phpmyadmin
-    restart: always
-    networks:
-      - app-tier
-    ports:
-      - "127.0.0.1:89:80"
-    environment:
-      PMA_HOST: mysql
-
-
-
-
