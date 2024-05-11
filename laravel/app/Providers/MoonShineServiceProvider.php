@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Providers;
 
 use App\MoonShine\Resources\CityResource;
-use App\MoonShine\Resources\ItemResource;
 use App\MoonShine\Resources\SkuItemResource;
 use MoonShine\Providers\MoonShineApplicationServiceProvider;
 use MoonShine\Menu\MenuGroup;
