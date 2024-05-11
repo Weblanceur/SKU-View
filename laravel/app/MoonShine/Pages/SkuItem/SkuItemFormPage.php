@@ -23,12 +23,7 @@ class SkuItemFormPage extends FormPage
     public function fields(): array
     {
         return [
-            BelongsTo::make(
-                'Город',
-                'city',
-                static fn (City $model) => $model->name,
-                new CityResource(),
-            )->badge('purple'),
+            BelongsTo::make('Город', 'city', static fn (City $model) => $model->name, new CityResource()),
             Text::make(__('moonshine::content.item'), 'title')->required(),
             Text::make(__('moonshine::content.barcode'), 'barcode')->required(),
             Text::make(__('moonshine::content.vendor_code'), 'vendor_code')->required(),

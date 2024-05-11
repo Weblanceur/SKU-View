@@ -6,11 +6,8 @@ namespace App\MoonShine\Pages\SkuItem;
 
 use App\Models\City;
 use App\MoonShine\Resources\CityResource;
-use MoonShine\Fields\ID;
-use MoonShine\Fields\Image;
 use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Text;
-use MoonShine\Fields\TinyMce;
 use MoonShine\Pages\Crud\IndexPage;
 use MoonShine\Components\MoonShineComponent;
 use MoonShine\Fields\Field;
@@ -25,6 +22,12 @@ class SkuItemIndexPage extends IndexPage
     {
         return [
 //            ID::make()->sortable(),
+            BelongsTo::make(
+                'Город',
+                'city',
+                static fn (City $model) => $model->name,
+                new CityResource(),
+            )->badge('purple'),
             Text::make(__('moonshine::content.item'), 'title'),
             Text::make(__('moonshine::content.barcode'), 'barcode'),
             Text::make(__('moonshine::content.vendor_code'), 'vendor_code'),
