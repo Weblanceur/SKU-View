@@ -27,7 +27,7 @@ class SkuItemFormPage extends FormPage
             Text::make(__('moonshine::content.item'), 'title')->required(),
             Text::make(__('moonshine::content.barcode'), 'barcode')->required(),
             Text::make(__('moonshine::content.vendor_code'), 'vendor_code')->required(),
-            TinyMce::make(__('moonshine::content.text'), 'text'),
+            TinyMce::make(__('moonshine::content.text'), 'text')->required(),
             Image::make(__('moonshine::content.image'), 'image')->disk('public')->dir('images/items')
                 ->allowedExtensions(['png', 'jpg', 'jpeg'])->removable(),
         ];
