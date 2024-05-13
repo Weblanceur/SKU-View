@@ -41,7 +41,7 @@
                                             </x-moonshine::column>
                                             <x-moonshine::column colSpan="6">
                                                 <x-moonshine::card class="text-center items-center">
-                                                    <img style="height: 480px;width:auto;" src="storage/{{ $item->image }}"
+                                                    <img style="height:480px;width:auto;margin-bottom:1rem" src="storage/{{ $item->image }}"
                                                          alt="{{ $item->title }}"/>
                                                     <svg id="barcode"></svg>
                                                     <br/>
