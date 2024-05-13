@@ -19,10 +19,10 @@
         <x-slot:profile>
             @auth
                 <x-moonshine::layout.profile route="/profile" :log-out-route="route('logout')">
-
+                    Админка
                 </x-moonshine::layout.profile>
             @elseguest
-                <x-moonshine::link-button :href="route('login')">
+                <x-moonshine::link-button :href="route('moonshine.login')">
                     Войти
                 </x-moonshine::link-button>
             @endauth
