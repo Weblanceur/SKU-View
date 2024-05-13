@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+
 @section('content')
     <x-moonshine::grid>
         <x-moonshine::column colSpan="12">
@@ -25,7 +27,9 @@
                     <x-slot:tbody>
                         @foreach($items as $item)
                             <tr>
-                                <th><x-moonshine::badge color="primary">{{ $item->city?->name }}</x-moonshine::badge></th>
+                                <th>
+                                    <x-moonshine::badge color="primary">{{ $item->city?->name }}</x-moonshine::badge>
+                                </th>
                                 <th>{{ $item->title }}</th>
                                 <th>{{ $item->barcode }}</th>
                                 <th>{{ $item->vendor_code }}</th>
@@ -37,8 +41,14 @@
                                             </x-moonshine::column>
                                             <x-moonshine::column colSpan="6">
                                                 <x-moonshine::card class="text-center items-center">
-                                                    <img style="height: 480px;width:auto;" src="storage/{{ $item->image }}" alt="{{ $item->title }}" />
-                                                    {{ $item->barcode }} <br/>
+                                                    <img style="height: 480px;width:auto;" src="storage/{{ $item->image }}"
+                                                         alt="{{ $item->title }}"/>
+                                                    <svg id="barcode"></svg>
+                                                    <br/>
+                                                    <script>
+                                                        JsBarcode("#barcode", {{$item->barcode}})
+                                                        document.getElementById('barcode').style.cssText += `width: 100%`
+                                                    </script>
                                                     {{ $item->title }}<br/>
                                                     Артикул: {{ $item->vendor_code }} <br/>
                                                     <x-moonshine::badge color="primary">{{ $item->city?->name }}</x-moonshine::badge>
