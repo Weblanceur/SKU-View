@@ -11,8 +11,6 @@ use App\MoonShine\Pages\SkuItem\SkuItemFormPage;
 use App\MoonShine\Pages\SkuItem\SkuItemDetailPage;
 
 use MoonShine\Attributes\Icon;
-use MoonShine\Handlers\ExportHandler;
-use MoonShine\Handlers\ImportHandler;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Pages\Page;
 
@@ -25,6 +23,8 @@ class SkuItemResource extends ModelResource
     protected string $model = Item::class;
     protected string $column = 'name';
     protected int $itemsPerPage = 10;
+    protected bool $createInModal = true;
+    protected bool $editInModal = true;
 
     public function title(): string
     {
@@ -65,15 +65,5 @@ class SkuItemResource extends ModelResource
     public function search(): array
     {
         return ['title', 'barcode', 'vendor_code'];
-    }
-
-    public function export(): ?ExportHandler
-    {
-        return null;
-    }
-
-    public function import(): ?ImportHandler
-    {
-        return null;
     }
 }

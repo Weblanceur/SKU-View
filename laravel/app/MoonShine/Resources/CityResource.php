@@ -43,14 +43,4 @@ class CityResource extends ModelResource
     {
         return ['name'];
     }
-
-    public function export(): ?ExportHandler
-    {
-        return null;
-    }
-
-    public function import(): ?ImportHandler
-    {
-        return null;
-    }
 }

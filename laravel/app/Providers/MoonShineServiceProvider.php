@@ -49,7 +49,7 @@ class MoonShineServiceProvider extends MoonShineApplicationServiceProvider
                    static fn() => __('moonshine::ui.resource.role_title'),
                    new MoonShineUserRoleResource()
                ),
-            ]),
+            ])->canSee(fn() => auth()->user()->moonshine_user_role_id === 1),
             MenuGroup::make(static fn() => __('moonshine::ui.resource.content'), [
                 MenuItem::make(
                     static fn() => __('moonshine::ui.resource.city'),

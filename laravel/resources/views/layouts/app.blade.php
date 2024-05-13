@@ -15,11 +15,9 @@
     <x-moonshine::layout.flash/>
 
     <x-moonshine::layout.top-bar :home_route="route('home')">
-        <x-moonshine::layout.menu/>
         <x-slot:profile>
             @auth
                 <x-moonshine::layout.profile route="/profile" :log-out-route="route('logout')">
-                    Админка
                 </x-moonshine::layout.profile>
             @elseguest
                 <x-moonshine::link-button :href="route('moonshine.login')">
@@ -32,10 +30,6 @@
     <main class="layout-page">
         <x-moonshine::grid>
             <x-moonshine::column>
-                <x-moonshine::layout.header
-                    :notifications="false"
-                    :locales="false"
-                />
                 <x-moonshine::layout.content/>
             </x-moonshine::column>
         </x-moonshine::grid>

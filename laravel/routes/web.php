@@ -1,7 +1,6 @@
 <?php
 
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('page');
-})->name('home');
+Route::match(['GET', 'POST'],'/', [ItemController::class, 'index'])->name('home');
