@@ -22,6 +22,7 @@ class ItemController extends Controller
 
         if ($search) {
             $items = Item::query()
+                ->with(['city'])
                 ->where('title', 'like', "%$search%")
                 ->orWhere('barcode', 'like', "%$search%")
                 ->orWhere('vendor_code', 'like', "%$search%")
