@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use MoonShine\Attributes\Icon;
 use MoonShine\Fields\ID;
 use MoonShine\Fields\Text;
+use MoonShine\Handlers\ExportHandler;
+use MoonShine\Handlers\ImportHandler;
 use MoonShine\Resources\ModelResource;
 
 #[Icon('heroicons.outline.building-office')]
@@ -40,5 +42,15 @@ class CityResource extends ModelResource
     public function search(): array
     {
         return ['name'];
+    }
+
+    public function export(): ?ExportHandler
+    {
+        return null;
+    }
+
+    public function import(): ?ImportHandler
+    {
+        return null;
     }
 }

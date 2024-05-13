@@ -4,8 +4,8 @@ use MoonShine\Exceptions\MoonShineNotFoundException;
 use MoonShine\Forms\LoginForm;
 use MoonShine\Http\Middleware\Authenticate;
 use MoonShine\Http\Middleware\SecurityHeadersMiddleware;
-use MoonShine\Models\MoonshineUser;
 use App\MoonShine\MoonShineLayout;
+use MoonShine\Permissions\Models\MoonshineUser;
 
 return [
     'dir' => 'app/MoonShine',

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine;
 
-use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Profile, Search, Sidebar, TopBar};
+use MoonShine\Components\Layout\{Content, Flash, Footer, Header, LayoutBlock, LayoutBuilder, Menu, Profile, Search, TopBar};
 use MoonShine\Components\When;
 use MoonShine\Contracts\MoonShineLayoutContract;
 
