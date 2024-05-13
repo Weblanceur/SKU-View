@@ -23,8 +23,6 @@ class SkuItemResource extends ModelResource
     protected string $model = Item::class;
     protected string $column = 'name';
     protected int $itemsPerPage = 10;
-    protected bool $createInModal = true;
-    protected bool $editInModal = true;
 
     public function title(): string
     {
