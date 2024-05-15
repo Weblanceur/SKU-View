@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>
+{{--<script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.6/dist/JsBarcode.all.min.js"></script>--}}
 
 @section('content')
     <x-moonshine::grid>
@@ -43,15 +43,8 @@
                                                 <x-moonshine::card class="text-center items-center">
                                                     <img style="height:420px;width:auto;margin-bottom:1rem" src="storage/{{ $item->image }}"
                                                          alt="{{ $item->title }}"/>
-                                                    <svg id="barcode"></svg>
-                                                    <br/>
-                                                    <script>
-                                                        JsBarcode("#barcode", {{$item->barcode}})
-                                                        document.getElementById('barcode').style.cssText += `width: 100%`
-                                                    </script>
-                                                    {{ $item->title }}<br/>
-                                                    Артикул: {{ $item->vendor_code }} <br/>
-                                                    <x-moonshine::badge color="primary">{{ $item->city?->name }}</x-moonshine::badge>
+                                                    <object style="margin:auto;" data="storage/{{ $item->pdf }}" width="229" height="161"></object>
+                                                    <x-moonshine::badge class="mt-2" color="primary">{{ $item->city?->name }}</x-moonshine::badge>
                                                 </x-moonshine::card>
                                             </x-moonshine::column>
                                         </x-moonshine::grid>

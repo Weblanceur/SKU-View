@@ -6,6 +6,7 @@ namespace App\MoonShine\Pages\SkuItem;
 
 use App\Models\City;
 use App\MoonShine\Resources\CityResource;
+use MoonShine\Fields\File;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Relationships\BelongsTo;
 use MoonShine\Fields\Text;
@@ -30,6 +31,8 @@ class SkuItemFormPage extends FormPage
             TinyMce::make(__('moonshine::content.text'), 'text')->required(),
             Image::make(__('moonshine::content.image'), 'image')->disk('public')->dir('images/items')
                 ->allowedExtensions(['png', 'jpg', 'jpeg'])->removable(),
+            File::make(__('moonshine::content.pdf'), 'pdf')->disk('public')->dir('pdf/items')
+                ->allowedExtensions(['pdf'])->removable(),
         ];
     }
 

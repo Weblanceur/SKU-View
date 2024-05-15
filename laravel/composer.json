@@ -10,7 +10,8 @@
         "laravel/framework": "^11.0",
         "laravel/tinker": "^2.9",
         "moonshine/moonshine": "^2.12",
-        "moonshine/permissions": "^1.0"
+        "moonshine/permissions": "^1.0",
+        "smalot/pdfparser": "^2.10"
     },
     "require-dev": {
         "fakerphp/faker": "^1.23",
