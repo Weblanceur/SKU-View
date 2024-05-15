@@ -23,6 +23,10 @@ class SkuItemResource extends ModelResource
     protected string $model = Item::class;
     protected string $column = 'name';
     protected int $itemsPerPage = 10;
+    public function redirectAfterSave(): string
+    {
+        return to_page(resource: new SkuItemResource());
+    }
 
     public function title(): string
     {
