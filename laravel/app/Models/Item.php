@@ -10,10 +10,8 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'barcode',
-        'vendor_code',
+    protected $guarded = [
+        'id',
     ];
 
     public function city(): BelongsTo

@@ -28,8 +28,9 @@ class SkuItemResource extends ModelResource
 
     public function save(Model $item, ?Fields $fields = null): Model
     {
-        $parser = new Parser();
+        $item = parent::save($item, $fields);
         if ($item['pdf']) {
+            $parser = new Parser();
             $pdf = $parser->parseFile(public_path('/storage/'.$item['pdf']));
 
             $text = $pdf->getText();
