@@ -68,6 +68,11 @@ class SkuItemResource extends ModelResource
         ];
     }
 
+    public function rules(Model $item): array
+    {
+        return [];
+    }
+
     public function search(): array
     {
         return ['title', 'barcode', 'vendor_code'];
