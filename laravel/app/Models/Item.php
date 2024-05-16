@@ -10,6 +10,12 @@ class Item extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'barcode',
+        'vendor_code',
+    ];
+
     public function city(): BelongsTo
     {
         return $this->belongsTo(City::class);

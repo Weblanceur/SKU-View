@@ -6,6 +6,8 @@ namespace App\MoonShine\Pages\SkuItem;
 
 use App\Models\City;
 use App\MoonShine\Resources\CityResource;
+use MoonShine\Decorations\Column;
+use MoonShine\Decorations\Grid;
 use MoonShine\Fields\File;
 use MoonShine\Fields\Image;
 use MoonShine\Fields\Relationships\BelongsTo;
@@ -24,15 +26,33 @@ class SkuItemFormPage extends FormPage
     public function fields(): array
     {
         return [
-            BelongsTo::make('Город', 'city', static fn (City $model) => $model->name, new CityResource()),
-            Text::make(__('moonshine::content.item'), 'title')->required(),
-            Text::make(__('moonshine::content.barcode'), 'barcode')->required(),
-            Text::make(__('moonshine::content.vendor_code'), 'vendor_code')->required(),
-            TinyMce::make(__('moonshine::content.text'), 'text')->required(),
-            Image::make(__('moonshine::content.image'), 'image')->disk('public')->dir('images/items')
-                ->allowedExtensions(['png', 'jpg', 'jpeg'])->removable(),
-            File::make(__('moonshine::content.pdf'), 'pdf')->disk('public')->dir('pdf/items')
-                ->allowedExtensions(['pdf'])->removable(),
+            Grid::make([
+                Column::make([
+                    BelongsTo::make('Город', 'city', static fn (City $model) => $model->name, new CityResource()),
+                ])->columnSpan(3),
+                Column::make([
+                    Text::make(__('moonshine::content.item'), 'title')->readonly()->hideOnCreate(),
+                ])->columnSpan(9),
+                Column::make([
+                    Text::make(__('moonshine::content.barcode'), 'barcode')->readonly()->hideOnCreate(),
+                ])->columnSpan(6),
+                Column::make([
+                    Text::make(__('moonshine::content.vendor_code'), 'vendor_code')->readonly()->hideOnCreate(),
+                ])->columnSpan(6),
+                Column::make([
+                    TinyMce::make(__('moonshine::content.text'), 'text')->required(),
+                ]),
+            ]),
+            Grid::make([
+                Column::make([
+                    Image::make(__('moonshine::content.image'), 'image')->disk('public')->dir('images/items')
+                        ->allowedExtensions(['png', 'jpg', 'jpeg'])->removable(),
+                ])->columnSpan(6),
+                Column::make([
+                    File::make(__('moonshine::content.pdf'), 'pdf')->disk('public')->dir('pdf/items')
+                        ->allowedExtensions(['pdf'])->removable(),
+                ])->columnSpan(6),
+            ]),
         ];
     }
 

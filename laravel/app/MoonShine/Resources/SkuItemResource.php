@@ -11,8 +11,10 @@ use App\MoonShine\Pages\SkuItem\SkuItemFormPage;
 use App\MoonShine\Pages\SkuItem\SkuItemDetailPage;
 
 use MoonShine\Attributes\Icon;
+use MoonShine\Fields\Fields;
 use MoonShine\Resources\ModelResource;
 use MoonShine\Pages\Page;
+use Smalot\PdfParser\Parser;
 
 /**
  * @extends ModelResource<Item>
@@ -23,6 +25,23 @@ class SkuItemResource extends ModelResource
     protected string $model = Item::class;
     protected string $column = 'name';
     protected int $itemsPerPage = 10;
+
+    public function save(Model $item, ?Fields $fields = null): Model
+    {
+        $parser = new Parser();
+        if ($item['pdf']) {
+            $pdf = $parser->parseFile(public_path('/storage/'.$item['pdf']));
+
+            $text = $pdf->getText();
+            $items = preg_split("/\n/", $text);
+            $item['barcode'] = trim($items[0]);
+            $item['title'] = trim($items[1]);
+            $item['vendor_code'] = trim(preg_replace('/Артикул:/', '', $items[2]));
+        }
+        $item->save();
+        return $item;
+    }
+
     public function redirectAfterSave(): string
     {
         return to_page(resource: new SkuItemResource());
@@ -50,7 +69,7 @@ class SkuItemResource extends ModelResource
     }
 
     /**
-     * @param Item $item
+     * @param  Item  $item
      *
      * @return array<string, string[]|string>
      * @see https://laravel.com/docs/validation#available-validation-rules
