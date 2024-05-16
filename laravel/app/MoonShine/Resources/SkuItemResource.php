@@ -68,21 +68,6 @@ class SkuItemResource extends ModelResource
         ];
     }
 
-    /**
-     * @param  Item  $item
-     *
-     * @return array<string, string[]|string>
-     * @see https://laravel.com/docs/validation#available-validation-rules
-     */
-    public function rules(Model $item): array
-    {
-        return [
-            'title' => ['required'],
-            'barcode' => ['required'],
-            'vendor_code' => ['required'],
-        ];
-    }
-
     public function search(): array
     {
         return ['title', 'barcode', 'vendor_code'];
