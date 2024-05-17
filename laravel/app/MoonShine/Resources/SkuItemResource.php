@@ -71,7 +71,10 @@ class SkuItemResource extends ModelResource
 
     public function rules(Model $item): array
     {
-        return [];
+        return [
+            /*'image' => ['required'],
+            'file' => ['required'],*/
+        ];
     }
 
     public function search(): array

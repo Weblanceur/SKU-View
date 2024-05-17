@@ -31,13 +31,13 @@ class SkuItemFormPage extends FormPage
                     BelongsTo::make('Город', 'city', static fn (City $model) => $model->name, new CityResource()),
                 ])->columnSpan(3),
                 Column::make([
-                    Text::make(__('moonshine::content.item'), 'title')->readonly()->hideOnCreate(),
+                    Text::make(__('moonshine::content.item'), 'title')->locked()->hideOnCreate(),
                 ])->columnSpan(9),
                 Column::make([
-                    Text::make(__('moonshine::content.barcode'), 'barcode')->readonly()->hideOnCreate(),
+                    Text::make(__('moonshine::content.barcode'), 'barcode')->locked()->hideOnCreate(),
                 ])->columnSpan(6),
                 Column::make([
-                    Text::make(__('moonshine::content.vendor_code'), 'vendor_code')->readonly()->hideOnCreate(),
+                    Text::make(__('moonshine::content.vendor_code'), 'vendor_code')->locked()->hideOnCreate(),
                 ])->columnSpan(6),
                 Column::make([
                     TinyMce::make(__('moonshine::content.text'), 'text')->required(),

@@ -15,6 +15,8 @@ return new class extends Migration
             $table->string('title')->nullable()->change();
             $table->string('barcode')->nullable()->change();
             $table->text('vendor_code')->nullable()->change();
+            $table->text('image')->nullable()->change();
+            $table->text('pdf')->nullable()->change();
         });
     }
 
@@ -27,6 +29,8 @@ return new class extends Migration
             $table->string('title')->change();
             $table->string('barcode')->change();
             $table->text('vendor_code')->change();
+            $table->text('image')->change();
+            $table->text('pdf')->change();
         });
     }
 };
