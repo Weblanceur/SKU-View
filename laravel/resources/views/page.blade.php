@@ -65,6 +65,13 @@
 @endsection
 
 <style>
+    ol {
+        list-style: auto !important;
+    }
+    .modal-title {
+        font-size: 2rem !important;
+        line-height: 2.25rem !important;
+    }
     .modal {
         overflow: hidden !important;
     }
