@@ -92,7 +92,7 @@
     }
     @media (min-width: 1024px) {
         .modal-body {
-            margin-top: 20rem;
+            margin-top: 24rem;
         }
     }
 </style>
