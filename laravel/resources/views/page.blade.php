@@ -90,7 +90,7 @@
         min-height: 100% !important;
         border-radius: 0 !important;
     }
-    @media (min-width: 1024px) {
+    @media (min-width: 960px) {
         .modal-body {
             margin-top: 24rem;
         }
