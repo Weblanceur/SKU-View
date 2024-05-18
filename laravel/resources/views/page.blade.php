@@ -65,6 +65,9 @@
 @endsection
 
 <style>
+    .box {
+        margin: 0 2rem;
+    }
     ol, ul {
         list-style: auto !important;
         padding: inherit !important;
