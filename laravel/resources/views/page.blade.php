@@ -65,13 +65,10 @@
 @endsection
 
 <style>
-    .box {
-        margin: 0 2rem;
-    }
     ol, ul {
         list-style: auto !important;
         padding: inherit !important;
-        margin: inherit !important;
+        margin: 0 2rem !important;
     }
     .modal-title {
         font-size: 2rem !important;
@@ -93,7 +90,7 @@
         min-height: 100% !important;
         border-radius: 0 !important;
     }
-    @media (max-width: 1024px) {
+    @media (max-width: 1280px) {
         .modal-body {
             margin-top: 24rem;
         }
