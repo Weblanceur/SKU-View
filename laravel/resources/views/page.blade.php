@@ -75,7 +75,7 @@
         line-height: 2.25rem !important;
     }
     .modal {
-        overflow: auto !important;
+        overflow: scroll !important;
     }
     .modal-dialog {
         margin: 0 !important;
@@ -84,15 +84,9 @@
     .modal-dialog-xl {
         max-width: 100vw !important;
         min-height: 100vh !important;
-        height: 100% !important;
     }
     .modal-content {
-        min-height: 100% !important;
+        min-height: 100vh !important;
         border-radius: 0 !important;
-    }
-    @media (max-width: 1280px) {
-        .modal-body {
-            margin-top: 24rem;
-        }
     }
 </style>
