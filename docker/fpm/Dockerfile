@@ -26,5 +26,8 @@ RUN apt-get update -y && apt-get install -y \
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Install Laravel dependencies
+RUN composer install && php artisan migrate
+
 
 WORKDIR /var/www/laravel

@@ -6,7 +6,7 @@ networks:
 
 services:
   fpm:
-    container_name: sku-fpm
+    container_name: fpm
     build:
       context: .
       dockerfile: docker/fpm/Dockerfile
@@ -18,7 +18,7 @@ services:
       - app-tier
 
   nginx:
-    container_name: sku-nginx
+    container_name: nginx
     build:
       context: .
       dockerfile: docker/nginx/Dockerfile
@@ -36,7 +36,7 @@ services:
 
   mysql:
     image: mysql:8.4
-    container_name: sku-mysql
+    container_name: mysql
     build:
       context: .
     restart: always
