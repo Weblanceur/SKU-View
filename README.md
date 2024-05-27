@@ -26,3 +26,5 @@ devops-инженера, можно обращаться - [telegram](https://t.
 laravel/.env.example)
 
 [Документация Laravel](https://laravel.com/docs/11.x/)
+
+[Документация MoonShine](https://moonshine-laravel.com/docs/)
